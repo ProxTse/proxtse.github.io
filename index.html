@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css"
+              href="https://fonts.googleapis.com/css?family=Monoton">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>PROX</title>
+
+    <!-- <link rel="stylesheet" href="main.css" /> -->
+
+    <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="js/bgstretcher.js"></script>
+    <link rel="stylesheet" href="css/priscilla.css" />
+    <script type="text/javascript">
+    	$(document).ready(function(){
+            //  Initialize Backgound Stretcher	   
+    		$(document).bgStretcher({
+    			images: ['images/01.jpg', 'images/02.jpg', 'images/03.jpg', 'images/04.jpg', 'images/05.jpg', 'images/06.jpg', 'images/07.jpg', 'images/08.jpg', 'images/09.jpg', 'images/10.jpg', 'images/11.jpg', 'images/12.jpg', 'images/13.jpg', 'images/14.jpg', 'images/15.jpg', 'images/16.jpg', 'images/17.jpg', 'images/18.jpg', 'images/19.jpg', 'images/20.jpg'],
+    			imageWidth: 1920, imageHeight: 1080
+    		});
+    		
+    		$('#toggleAnimation').click(function(){
+    	       if($(this).val() == "PAUSE"){
+    	           $(this).val("START");
+    	           $(document).bgStretcher.pause();
+    	       } else {
+    	           $(this).val("PAUSE");
+    	           $(document).bgStretcher.play();
+    	       }
+    		});
+    	});
+    </script>
+    <script type="text/javascript">
+            
+        var int=setInterval(clock,1000);
+        function clock(){
+            
+            document.getElementById("datetime").value=getDateTime();
+            document.getElementById("date").value=getDate();
+        }
+        
+        //yyyy-MM-dd HH:mm:SS
+        
+        function getDateTime() {
+            var date=new Date();
+            var hh = date.getHours();
+            var mm = date.getMinutes();
+            var ss = date.getSeconds();
+            return hh + ":" + mm + ":" + ss;
+        }
+        function getDate(){
+            var week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+            var date=new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var weekday=week[date.getDay()];
+            return year + "-" + month + "-" + day + " " + weekday;
+        }
+        function searchByBaidu(){
+            var str=document.getElementById("sc").value;
+            var link="http://www.baidu.com/s?wd="+str;
+            window.open(link,'_blank');
+        }
+        /*function searchByGoogle(){
+            var str=document.getElementById("sc").value;
+            var link="https://www.google.com.hk/search?q="+str;
+            window.open(link,'_blank');
+        }*/
+        function searchByBiying(){
+            var str=document.getElementById("sc").value;
+            var link="https://cn.bing.com/search?q="+str;
+            window.open(link,'_blank');
+        }
+        
+    </script>
+
+    <style type="text/css">
+        BODY {
+            margin: 0;
+            padding: 0;
+            /*background: #557A24;*/
+        }
+        input:focus{
+            outline: none;
+        }
+        #glass{
+            position: absolute;
+            z-index: 2;
+            background: rgba(0,0,0,0.1);
+            width: 100%;
+            height: 100%;
+            /*border: 10px solid #FFF;*/
+        }
+        #topbar{
+            z-index: 3;
+            background: rgba(0,0,0,0.1);
+            height: 80px;
+            line-height: 80px;
+            width: 100%;
+            position: relative;
+            margin-bottom: 15%;
+            color: white;
+            font-family: 'Monoton', cursive;
+            font-size: 45px;
+            /*font-weight: bold;*/     
+        }
+        #weather{
+
+        }
+        #wp{
+            float: left;
+        }
+        #fr{
+            width: 420px;
+            position: absolute;
+            top: 10px;
+            bottom: 0px;
+            left:50%;
+            margin-left: -210px;
+        }
+        #datetime{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            height: 20px;
+            width: 80px;
+            /*color: rgba(0,140,0,1);*/
+            color: white;
+            background: none;
+            border: none;
+            font-size: 20px;
+            text-align: right;
+            font-weight: bold;
+        }
+        #date{
+            position: absolute;
+            top: 40px;
+            right: 10px;
+            height: 20px;
+            width: 180px;
+            /*color: rgba(0,140,0,1);*/
+            color: white;
+            background: none;
+            border: none;
+            font-size: 20px;
+            text-align: right;
+            font-weight: bold;
+        }    
+        #page {
+            z-index: 3;
+            position: relative;
+            margin: auto;
+            width: 40%;
+            border-radius: 20px;
+            /*padding: 20px;*/
+            margin-bottom: 1%;
+            background: #000000;
+            font-size: 12px;
+            background: rgba(0,0,0,0.1);
+            /*color: #AAAAAA;
+            opacity: 0.2;
+            -moz-opacity: 0.2;
+            filter: alpha(opacity=20);*/
+        }
+
+        #search{
+            width: 100%;
+            height: 40px;
+            /*margin: 20px auto;*/
+        }
+        #sc{
+            width: 80%;
+            height: 35px;
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0,0,0,0);
+        }
+        
+        #bt1{
+            width: 9%;
+            height: 100%;
+            float: left;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            background-color: rgba(0,0,0,0);
+        }
+        #bt2{
+            width: 9%;
+            height: 100%;
+            float: right;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            background-color: rgba(0,0,0,0);
+        }
+        #bt1:hover,#bt2:hover{
+            background-color: rgba(0,0,0,0.2);
+        }
+        #tail{
+            z-index: 3;
+            position: fixed;
+            height: 5%;
+            width: 98%;
+            bottom: 20px;
+            left: 1%;
+            /*background-color: rgba(0,0,0,0.2);*/
+        }
+        #spAnimation{
+            float: left;
+            width: 6%;
+        }
+        P.larger-size { font-size: 16px; }
+        #toggleAnimation{
+            font-size: 20px;
+            color: white;
+            border: 0px;
+            background-color: rgba(0,0,0,0.2);
+        }
+        #about{
+            z-index: 3;
+            text-align: center;
+            font-size: 20px;
+            color: white;
+            float: left;
+            width: 87%;
+            /*background-color: rgba(0,0,0,0.2);*/
+            /*left: 20px;*/
+        }
+        #weibo{
+            float: right;
+            width: 6%;
+            text-align: right;
+        }
+        #weibo a{
+            font-size: 20px;
+            color: white;
+            text-decoration:none;
+            /*background-color: rgba(0,0,0,0.2);*/
+        }
+        /*下拉菜单*/
+        /*****************************************************************************************/
+        #dropmenu{
+            z-index: 3;
+            position: relative;
+            margin: auto;
+            width: 30%;
+            text-align: center;
+        }
+        #menu {
+            /*z-index: 2;*/
+            font-family: Arial;
+            font-size: 14px;
+            width: auto;
+
+            overflow: hidden;
+        }
+
+        #menu, #menu ul {
+            list-style-type: none;
+            background: rgba(0,0,0,0);
+
+            margin: 0;
+            padding: 0;
+        }
+
+        #menu >li {
+            width: 33.3%;
+            /*margin-left: 0.15%;
+            margin-right: 0.15%;*/
+            border-radius: 20px;
+            text-align: center;
+            float: left;
+        }
+
+        #menu li a {
+            display: block;
+            padding: 10px 15px;
+            color: #FFF;
+            text-decoration: none;
+            /*border-right: 1px solid #FFF;*/
+        }
+        #menu li a:hover {
+            border-radius: 20px;
+            background: rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        #menu li ul li {
+            float: none;
+
+        }
+
+        #menu li ul li a {
+            /*border-top: 1px solid #FFF;*/
+            /*text-align: center;*/
+        }
+
+        #menu li ul {
+            width: 33.3%;
+            display: none;
+            position: absolute;
+        }
+
+        #menu li:hover ul {
+
+            display: block;
+        }
+    </style>
+
+</head>
+<body onload="javascript:form1.ta.focus();">
+    <div id="glass">
+    <div id="topbar">
+        <div id="wp">PRISCILLA</div>
+        <input type="text" name="" id="datetime" />
+        <input type="text" name="" id="date" />
+
+        <div id="fr"><iframe id="weather" width="420" scrolling="no" height="60" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&color=%23FFFFFF&bgc=%23&icon=1&num=3"></iframe></div>
+
+    </div>
+    <div id="page">
+        <form id="search" name="form1" >
+
+            <input type="text" name="ta" value="" id="sc"  onkeypress="if(event.keyCode==13)searchByBaidu()"/>
+            <input type="button" value="百度" onclick="searchByBaidu()" id="bt1" />
+            <input type="button" value="必应" onclick="searchByBiying()" id="bt2" />
+            
+        </form>
+        
+    </div>
+    <div id="dropmenu">
+        <ul id="menu">
+            <li>
+                <a href="#">公主娴</a>
+                <ul>
+                    <li>
+                        <a href="http://weibo.com/priscillachan728" target="_blank">微博主页</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/priscillachanwaihan/" target="_blank">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/PriscillaChanWaiHan/" target="_blank">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="http://tieba.baidu.com/f?kw=%E9%99%88%E6%85%A7%E5%A8%B4" target="_blank">陈慧娴吧</a>
+                    </li>
+                    <li>
+                        <a href="http://weibo.com/p/1008087f964c7629e5488dd34d58bc5ba15f99/super_index" target="_blank">超级话题</a>
+                    </li>
+                    <li>
+                        <a href="http://mp.weixin.qq.com/profile?src=3&timestamp=1555641662&ver=1&signature=giUCr1eQ7LYUrnjYpHE7fBf50-qDs8TgctGvtLuV-2Pn043V98doVeuoOofuwbC9A07Ln5I6-Oqe*bkjnQktHQ==" >聚娴会</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">购物</a>
+                <ul>
+                    <li>
+                        <a href="https://www.tmall.com/" target="_blank">天猫</a>
+                    </li>
+                    <li>
+                        <a href="https://www.taobao.com/" target="_blank">淘宝</a>
+                    </li>
+                    <li>
+                        <a href="http://www.jd.com/" target="_blank">京东</a>
+                    </li>
+                    <li>
+                        <a href="https://www.amazon.cn/" target="_blank">亚马逊</a>
+                    </li>
+                    <li>
+                        <a href="http://www.yhd.com/" target="_blank">1号店</a>
+                    </li>
+                    <li>
+                        <a href="http://www.dangdang.com/" target="_blank">当当</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">网址导航</a>
+                <ul>
+                    <li>
+                        <a href="http://lackar.com/aa/" target="_blank">AnywhereAnything</a>
+                    </li>
+                    <li>
+                        <a href="http://1nami.com/" target="_blank">1纳米学习网站导航</a>
+                    </li>
+                    <li>
+                        <a href="http://gate.guokr.com/" target="_blank">果壳任意门</a>
+                    </li>
+                    <li>
+                        <a href="https://www.zhibo8.cc/" target="_blank">直播吧</a>
+                    </li>
+                    <li>
+                        <a href="https://www.hao123.com/" target="_blank">hao123</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="tail">
+        <div id="spAnimation">
+            <form>
+                <input type="button" value="PAUSE" id="toggleAnimation" name="toggleAnimation" />
+            </form>
+        </div>
+        <div id="about">
+            Power by:Prox Tse | Version:v1.2.1
+        </div>
+        <div id="weibo">
+            <a href="http://weibo.com/proxtse" target="_blank">@會等閑</a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
