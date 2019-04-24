@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css"
               href="https://fonts.googleapis.com/css?family=Monoton">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>PROX</title>
+    <title>PRISCILLA</title>
 
     <!-- <link rel="stylesheet" href="main.css" /> -->
 
@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="css/priscilla.css" />
     <script type="text/javascript">
     	$(document).ready(function(){
-            //  Initialize Backgound Stretcher	   
+            //  Initialize Backgound Stretcher
     		$(document).bgStretcher({
     			images: ['images/01.jpg', 'images/02.jpg', 'images/03.jpg', 'images/04.jpg', 'images/05.jpg', 'images/06.jpg', 'images/07.jpg', 'images/08.jpg', 'images/09.jpg', 'images/10.jpg', 'images/11.jpg', 'images/12.jpg', 'images/13.jpg', 'images/14.jpg', 'images/15.jpg', 'images/16.jpg', 'images/17.jpg', 'images/18.jpg', 'images/19.jpg', 'images/20.jpg'],
     			imageWidth: 1920, imageHeight: 1080
     		});
-    		
+
     		$('#toggleAnimation').click(function(){
     	       if($(this).val() == "PAUSE"){
     	           $(this).val("START");
@@ -31,16 +31,16 @@
     	});
     </script>
     <script type="text/javascript">
-            
+
         var int=setInterval(clock,1000);
         function clock(){
-            
+
             document.getElementById("datetime").value=getDateTime();
             document.getElementById("date").value=getDate();
         }
-        
+
         //yyyy-MM-dd HH:mm:SS
-        
+
         function getDateTime() {
             var date=new Date();
             var hh = date.getHours();
@@ -72,7 +72,7 @@
             var link="https://cn.bing.com/search?q="+str;
             window.open(link,'_blank');
         }
-        
+
     </script>
 
     <style type="text/css">
@@ -103,7 +103,7 @@
             color: white;
             font-family: 'Monoton', cursive;
             font-size: 45px;
-            /*font-weight: bold;*/     
+            /*font-weight: bold;*/
         }
         #weather{
 
@@ -146,7 +146,7 @@
             font-size: 20px;
             text-align: right;
             font-weight: bold;
-        }    
+        }
         #page {
             z-index: 3;
             position: relative;
@@ -179,7 +179,7 @@
             color: white;
             background: rgba(0,0,0,0);
         }
-        
+
         #bt1{
             width: 9%;
             height: 100%;
@@ -329,9 +329,9 @@
             <input type="text" name="ta" value="" id="sc"  onkeypress="if(event.keyCode==13)searchByBaidu()"/>
             <input type="button" value="百度" onclick="searchByBaidu()" id="bt1" />
             <input type="button" value="必应" onclick="searchByBiying()" id="bt2" />
-            
+
         </form>
-        
+
     </div>
     <div id="dropmenu">
         <ul id="menu">
